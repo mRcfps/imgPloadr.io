@@ -13,7 +13,7 @@ module.exports = function (app) {
   // configure view engine
   app.engine('handlebars', exphbs.create({
     defaultLayout: 'main',
-    layoutsDir: path.join(app.get('views') + 'layouts'),
+    layoutsDir: path.join(app.get('views'), 'layouts'),
     partialsDir: [path.join(app.get('views'), 'partials')],
     helpers: {
       timeago: function (timestamp) {
