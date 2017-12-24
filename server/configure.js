@@ -7,14 +7,20 @@ var cookieParser = require('cookie-parser');
 var morgan = require('morgan');
 var methodOverride = require('method-override');
 var errorHandler = require('errorhandler');
+var moment = require('moment');
 
 module.exports = function (app) {
   // configure view engine
   app.engine('handlebars', exphbs.create({
     defaultLayout: 'main',
     layoutsDir: path.join(app.get('views') + 'layouts'),
-    partialsDir: [path.join(app.get('views'), 'partials')]
-  }));
+    partialsDir: [path.join(app.get('views'), 'partials')],
+    helpers: {
+      timeago: function (timestamp) {
+        return moment(timestamp).startOf('minute').fromNow();
+      }
+    }
+  }).engine);
   app.set('view engine', 'handlebars');
 
   app.use(morgan('dev'));
