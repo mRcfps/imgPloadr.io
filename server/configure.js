@@ -9,6 +9,14 @@ var methodOverride = require('method-override');
 var errorHandler = require('errorhandler');
 
 module.exports = function (app) {
+  // configure view engine
+  app.engine('handlebars', exphbs.create({
+    defaultLayout: 'main',
+    layoutsDir: path.join(app.get('views') + 'layouts'),
+    partialsDir: [path.join(app.get('views'), 'partials')]
+  }));
+  app.set('view engine', 'handlebars');
+
   app.use(morgan('dev'));
   app.use(bodyParser.urlencoded({ 'extended': true }));
   app.use(bodyParser.json());
