@@ -1,5 +1,5 @@
 var path = require('path');
-//var routes = require('./routes');
+var routes = require('./routes');
 var exphbs = require('express-handlebars');
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -15,7 +15,7 @@ module.exports = function (app) {
   app.use(methodOverride());
   app.use(cookieParser('some-secret-value-here'));
 
-  //routes(app);
+  routes(app);
 
   app.use('/public/', express.static(path.join(__dirname, '../public')));
 
