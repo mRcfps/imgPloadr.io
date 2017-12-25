@@ -33,7 +33,7 @@ module.exports = {
       ]
     };
     sidebar(viewModel, function (viewModel) {
-      res.render('index', viewModel);
+      res.render('image', viewModel);
     });
   },
   create: function (req, res) {
@@ -64,7 +64,7 @@ module.exports = {
     saveImage();
   },
   like: function (req, res) {
-    res.send('The image:like POST controller');
+    res.json({ likes: 1 });
   },
   comment: function (req, res) {
     res.send('The image:comment POST controller');
