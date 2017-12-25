@@ -1,5 +1,6 @@
 var fs = require('fs');
 var path = require('path');
+var sidebar = require('../helpers/sidebar');
 
 module.exports = {
   index: function (req, res) {
@@ -31,7 +32,9 @@ module.exports = {
         }
       ]
     };
-    res.render('image', viewModel);
+    sidebar(viewModel, function (viewModel) {
+      res.render('index', viewModel);
+    });
   },
   create: function (req, res) {
     var saveImage = function () {
