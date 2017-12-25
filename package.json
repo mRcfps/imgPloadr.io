@@ -16,6 +16,7 @@
     "express-handlebars": "^3.0.0",
     "method-override": "^2.3.10",
     "moment": "^2.20.1",
-    "morgan": "^1.9.0"
+    "morgan": "^1.9.0",
+    "multer": "^0.1.8"
   }
 }
